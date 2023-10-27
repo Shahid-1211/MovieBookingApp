@@ -1,0 +1,35 @@
+#footer {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1));
+    position: absolute;
+    color: white;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 5px;
+}
+
+
+.section-divider {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.divider {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+  
+  
+h2 {
+font-size: 24px;
+margin-bottom: 10px;
+}
+
+p {
+font-size: 16px;
+margin: 0;
+}
+
+address {
+margin-top: 10px;
+}

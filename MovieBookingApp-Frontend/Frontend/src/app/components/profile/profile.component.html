@@ -1,0 +1,41 @@
+<div class="profile-container">
+  <div class="profile-heading">
+    <h1>My Profile</h1>
+  </div>
+  <div class="profile-separator"></div>
+  <div class="profile-card">
+    <div class="profile-image">
+      <img src="../../../assets/images/User-Profile-PNG.png" alt="User Profile Image">
+    </div>
+    <div class="profile-details">
+      <div class="profile-field">
+        <span class="profile-label">User ID:</span>
+        <span class="profile-value">{{ userId }}</span>
+      </div>
+      <div class="profile-field">
+        <span class="profile-label">First Name:</span>
+        <span class="profile-value">{{ firstName }}</span>
+      </div>
+      <div class="profile-field">
+        <span class="profile-label">Last Name:</span>
+        <span class="profile-value">{{ lastName }}</span>
+      </div>
+      <div class="profile-field">
+        <span class="profile-label">Email:</span>
+        <span class="profile-value">{{ email }}</span>
+      </div>
+      <div class="profile-field">
+        <span class="profile-label">Role:</span>
+        <span class="profile-value">{{ role }}</span>
+      </div>
+    </div>
+    <button
+      mat-raised-button
+      color="accent"
+      routerLink="/update-password"
+      class="update-password-btn"
+    >
+      Update Password
+    </button>
+  </div>
+</div>

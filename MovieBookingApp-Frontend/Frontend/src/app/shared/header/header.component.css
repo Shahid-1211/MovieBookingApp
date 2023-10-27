@@ -1,0 +1,88 @@
+.header-logo {
+  display: inline-block;
+  width: 100px;
+  height: 45px;
+  background-image: url('../../../assets/images/CTSH.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.header-logo:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.header-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.header-link {
+  margin-right: 20px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: normal;
+  font-style: italic;
+  font-size: 18px;
+  color: #333;
+}
+
+.header-link-info {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  white-space: nowrap;
+  max-width: 300px;
+  display: none;
+}
+
+.header-link:hover .header-link-info {
+  display: block;
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  font-size: 24px;
+  color: #333;
+  text-decoration: none;
+}
+
+.header-link:hover .header-link-info {
+  display: block;
+}
+
+.centered-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 350px;
+  flex: 1;
+}
+
+.centered-image-container img {
+  max-height: 100px;
+  max-width: 100%;
+}
+
+#contact{
+  color: black;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+}

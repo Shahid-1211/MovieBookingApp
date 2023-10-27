@@ -1,0 +1,63 @@
+<div class="card-container">
+  <div *ngIf="!isLoading" class="movie-details-container">
+    <div class="movie-details">
+      <div class="poster-container">
+        <img src="{{ movie?.posterUrl }}" alt="{{ movie?.title }} Poster" />
+      </div>
+      <div class="info-container">
+        <h2>{{ movie?.title }}</h2>
+        <div class="rating">
+          <mat-icon>star</mat-icon>
+          <span>{{ movie?.rating }}</span>
+        </div>
+        <p><strong>Genre:</strong> {{ movie?.genre }}</p>
+        <p><strong>Language:</strong> {{ movie?.language }}</p>
+        <p class="description">
+          <strong>Description:</strong> {{ movie?.description }}
+        </p>
+        <p><strong>Release Date:</strong> {{ movie?.releaseDate }}</p>
+        <p><strong>Runtime:</strong> {{ movie?.runtime }}</p>
+        <p><strong>Director:</strong> {{ movie?.director }}</p>
+        <p><strong>Casts:</strong> {{ movie?.cast }}</p>
+        <a href="{{ movie?.trailerUrl }}" target="_blank" class="trailer-link">Watch Trailer</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="right-show-list">
+    <h3>Available Shows:</h3>
+    <div *ngIf="movie?.shows && numShows>0 else noShows">
+      <div class="show-list-container">
+        <div *ngFor="let show of movie?.shows" class="show-card">
+          <div class="theater-info">
+            <p><strong>Theater:</strong> {{ show.name }}</p>
+            <p><strong>Showtime:</strong> {{ show.showTime }}</p>
+            <p>
+              <strong>Available Seats:</strong>
+              {{ show.totalSeats - show.bookedSeats }}/{{ show.totalSeats }}
+            </p>
+            <p>
+              <strong><span [ngClass]="{
+                'ticket-available': show.ticketStatus === 'AVAILABLE',
+                'ticket-book-asap': show.ticketStatus === 'BOOK ASAP',
+                'ticket-sold-out': show.ticketStatus === 'SOLD OUT'
+              }">{{ show.ticketStatus }}</span></strong>
+            </p>
+            <p><strong>Location:</strong> {{ show.location }}</p>
+          </div>
+          <div class="button-container" *ngIf="isAdmin">
+            <button mat-icon-button color="warn" (click) = "deleteShow(show.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+          <button *ngIf="isAdmin" mat-raised-button (click)="updateTicket(show.name,show.showTime)" color="primary" class="update-button">Update Tickets</button>
+          <button mat-raised-button color="primary" (click)="bookTicket(show.id)">Book Ticket</button>
+        </div>
+      </div>
+    </div>
+    <ng-template #noShows>
+      <div class="no-shows-message">No shows available</div>
+    </ng-template>
+  </div>
+  <button *ngIf="isAdmin" mat-raised-button color="primary" (click)="addShowsDialog()" class="add-shows-button">Add Shows</button>
+</div>

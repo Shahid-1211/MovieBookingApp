@@ -1,0 +1,58 @@
+<div class="loading-spinner" *ngIf="isLoading">
+    <mat-spinner color="accent"></mat-spinner>
+</div>
+<div class="success-dialog" *ngIf="isSuccess">
+    <h2 class="dialog-title">
+      <mat-icon class="dialog-icon">check_circle_outline</mat-icon> Success
+    </h2>
+    <div class="dialog-content">
+      <p>New show has been added successfully!</p>
+    </div>
+    <div class="dialog-actions">
+      <button mat-mini-fab color="primary" (click)="onNoClick()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+</div>
+<div class="error-dialog" *ngIf="isError">
+    <h2 class="dialog-title">
+      <mat-icon class="dialog-icon">check_circle_outline</mat-icon> Opps!
+    </h2>
+    <div class="dialog-content">
+      <p>{{ errMessage }}</p>
+    </div>
+    <div class="dialog-actions">
+      <button mat-mini-fab color="primary" (click)="onNoClick()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+</div>
+<div *ngIf="!isLoading && !isSuccess && !isError">
+        <h2 mat-dialog-title style="margin: 30px"><strong>Add Shows</strong></h2>
+        <div class="theater-section" style="margin: 30px">
+            <h4>Add Theaters</h4>
+            <div class="theater">
+            <mat-label>Theater</mat-label>
+            <mat-form-field class="add-movie-field">
+                <mat-label>Theater</mat-label>
+                <mat-select [(ngModel)]="theaterName" required>
+                <mat-option *ngFor="let theater of availableTheaters" [value]="theater.name" > {{ theater.name }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="add-movie-field">
+                <mat-label>Total Seats</mat-label>
+                <input matInput placeholder="Seats" [(ngModel)]="seats"required />
+            </mat-form-field>
+
+            <mat-form-field class="add-movie-field">
+                <mat-label>Show time. Ex: 7PM</mat-label>
+                <input matInput placeholder="Showtime" [(ngModel)]="showtime" required />
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Cancel</button>
+        <button mat-button color="primary" (click)="addShows(theaterName,showtime, seats)">Add</button>
+        </div>
+</div>
+  

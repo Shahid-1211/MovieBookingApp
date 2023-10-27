@@ -1,0 +1,21 @@
+<div *ngIf="totalTickets>0 else noTickets">
+  <div class ="card-container">
+    <div *ngFor="let ticket of userBookings" class="large-card">
+      <div class="ticket-card">
+        <div class="left-side">
+          <img class="poster-image" [src]="ticket.posterUrl" alt="Movie Poster">
+        </div>
+        <div class="right-side">
+          <div class="movie-title">{{ticket.movieName}}</div>
+          <div class="theatre-name">{{ticket.theatreName}}</div>
+          <div class="show-time">Show Time: {{ticket.showTime}}</div>
+          <div [ngClass]="getStatusClass(ticket.status)" class="status">{{ticket.status}}</div>
+          <div class="ticket-id">Ticket ID: {{ticket.ticketId}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noTickets>
+  <div class="no-tickets-message">No Movie Bookings.</div>
+</ng-template>

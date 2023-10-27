@@ -1,0 +1,22 @@
+#background-container {
+  background-image: url('../../../assets/images/137_1697869478736.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: url('../../../assets/images/137_1697873137021.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+header {
+  background-color: rgba(255, 255, 255, 0.5);
+}
